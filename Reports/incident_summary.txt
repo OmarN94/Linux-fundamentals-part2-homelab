@@ -1,0 +1,55 @@
+INCIDENT SUMMARY - SSH Authentication Investigation
+
+1. Incident Overview
+
+I analyzed SSH authentication events from a Linux server named srv-auth-01.
+The objective of the investigation was to identify potentially suspicious authentication activity
+
+2. Evidence Analyzed
+
+The original log file was named `soc_authentication_lab2.log`.
+
+The working copy used for the analysis was named `authentication_working.log`.
+
+The failed login report was saved as `failed_logins.txt`.
+
+The report dedicated to the suspicious IP address was saved as `suspicious_ip_report.txt`.
+
+
+3. Key Finding
+
+During the investigation, I identified a suspicious IP address: **203.0.113.77**.
+
+This IP address was associated with **14 failed login attempts** and **1 successful login**.
+
+The targeted accounts were `admin` and `root`.
+
+The successful authentication occurred at **08:40:02**, using the `admin` account and the password authentication method.
+
+4. Security Assesment
+
+The authentication logs show multiple failed login attempts followed by a successful login from IP address `203.0.113.77`.
+
+This activity could indicate a successful brute-force attack against the `admin` account.
+
+However, the available evidence is not sufficient to confirm that the server was compromised.
+
+Further investigation is required to determine whether the successful login was authorized.
+
+5. Reccomend Actions
+
+Based on the investigation, I recommend the following actions:
+
+- Investigate the successful login from IP address `203.0.113.77`.
+- Review other authentication events associated with the `admin` and `root` accounts.
+- Check for unusual activity after the successful login.
+- Enable or strengthen multi-factor authentication where supported.
+- Consider restricting SSH access and using public key authentication.
+
+6. Lab Disclaimer
+
+This investigation was conducted in a controlled lab environment using simulated SSH authentication logs.
+
+All IP addresses, authentication events, and server information are fictional.
+
+The Linux commands, log analysis, and evidence management activities were performed as part of a hands-on cybersecurity training exercise.
